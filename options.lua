@@ -275,7 +275,7 @@ vim.opt.termguicolors = true
 
 -- guicursor
 --     set gcr=
-vim.opt.guicursor = ""
+vim.opt.guicursor = "a:hor25-Cursor-blinkon300-blinkoff300"
 
 -- cursorcolumn	highlight the screen column of the cursor
 	-- (local to window)
@@ -531,7 +531,7 @@ vim.opt.undofile = true
 
 -- undodir	list of directories for undo files
 -- 	set udir=/home/tiny/.local/state/nvim/undo//
-vim.opt.undodir = "~/.cache/nvim/undo"
+vim.opt.undodir = vim.fn.stdpath("cache") .. "/undo"
 
 -- undoreload	maximum number lines to save for undo on a buffer reload
 -- 	set ur=10000

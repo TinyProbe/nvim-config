@@ -35,12 +35,12 @@ function lineOutdent()
 end
 
 function blockIndent()
-    indentNormal()
+    lineIndent()
     vim.cmd("normal! gv")
 end
 
 function blockOutdent()
-    outdentNormal()
+    lineOutdent()
     vim.cmd("normal! gv")
 end
     -- line(block) up/down
@@ -53,11 +53,11 @@ function lineDown()
 end
 
 function blockUp()
-    vim.cmd("execute \":m-2\"")
+    vim.cmd("execute \":'<,'>m'<-2\"")
     vim.cmd("normal! gv")
 end
 
 function blockDown()
-    vim.cmd("execute \":m'>+\"")
+    vim.cmd("execute \":'<,'>m'>+1\"")
     vim.cmd("normal! gv")
 end
