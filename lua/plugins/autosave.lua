@@ -13,11 +13,12 @@ return {
       prompt = {
         enable = true,
         style = 'stdout',
-        message = nil -- function()
-        --   return 'autosave ' .. vim.fn.strftime('%H:%M:%S')
-        -- end,
+        message = function()
+          -- return 'autosave ' .. vim.fn.strftime('%H:%M:%S')
+          return ''
+        end,
       },
-      write_all_buffers = true,
+      write_all_buffers = false,
       debounce_delay = 1000,
     })
   end,
