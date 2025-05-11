@@ -3,7 +3,7 @@ return {
   config = function()
     require("autosave").setup({
       enable = true,
-      events = {'InsertLeave', 'TextChanged'},
+      events = { 'InsertLeave', 'TextChanged' },
       conditions = {
         exists = true,
         modifiable = true,
@@ -13,12 +13,12 @@ return {
       prompt = {
         enable = true,
         style = 'stdout',
-        message = function()
-          return 'autosave ' .. vim.fn.strftime('%H:%M:%S')
-        end,
+        message = nil -- function()
+        --   return 'autosave ' .. vim.fn.strftime('%H:%M:%S')
+        -- end,
       },
-      write_all_buffers = false,
-      debounce_delay = 0,
+      write_all_buffers = true,
+      debounce_delay = 1000,
     })
   end,
 }

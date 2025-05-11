@@ -6,18 +6,14 @@ return {
     local bufferline = require("bufferline")
     bufferline.setup({
       options = {
-        mode = "tabs",
+        mode = "buffers",
         style_preset = { bufferline.style_preset.no_italic },
         themeable = true,
         numbers = "none", -- "none" | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string
-        close_command = "tabclose! %d",
-        left_mouse_command = "tabnext! %d",
-        middle_mouse_command = "tabclose! %d",
+        close_command = "bdelete! %d",
+        left_mouse_command = "buffer! %d",
+        middle_mouse_command = "bdelete! %d",
         right_mouse_command = nil,
-        -- close_command = "bdelete! %d",
-        -- left_mouse_command = "buffer! %d",
-        -- middle_mouse_command = "bdelete! %d",
-        -- right_mouse_command = nil,
         indicator = {
           icon = '', -- this should be omitted if indicator style is not 'icon'
           style = 'icon', -- 'icon' | 'underline' | 'none'
@@ -65,7 +61,7 @@ return {
         move_wraps_at_ends = false, -- whether or not the move command "wraps" at the first or last position
         -- can also be a table containing 2 custom separators
         -- [focused and unfocused]. eg: { '|', '|' }
-        separator_style = "thin", -- "slant" | "slope" | "thick" | "thin" | { 'any', 'any' }
+        separator_style = "slant", -- "slant" | "slope" | "thick" | "thin" | { 'any', 'any' }
         enforce_regular_tabs = true, -- false | true
         always_show_bufferline = true, -- true | false
         auto_toggle_bufferline = true, -- true | false

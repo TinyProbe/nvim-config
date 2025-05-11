@@ -13,15 +13,9 @@ end
 -- select all
 function selectAll()
   local cur_win = vim.api.nvim_get_current_win()
-  vim.api.nvim_win_set_cursor(cur_win, {
-    vim.api.nvim_buf_line_count(0),
-    0
-  })
+  vim.api.nvim_win_set_cursor(cur_win, { vim.api.nvim_buf_line_count(0), 0 })
   vim.cmd("normal! V")
-  vim.api.nvim_win_set_cursor(cur_win, {
-    1,
-    0
-  })
+  vim.api.nvim_win_set_cursor(cur_win, { 1, 0 })
 end
 
 -- move line
@@ -52,13 +46,12 @@ function lineDown()
   vim.cmd("execute \":move .+1\"")
 end
 
--- fix this funcs
--- function blockUp()
---     vim.cmd("execute \":'<,'>m'<-2\"")
---     vim.cmd("normal! gv")
--- end
+function blockUp()
+  vim.cmd("execute \":move -2\"")
+  vim.cmd("normal! gv")
+end
 
--- function blockDown()
---     vim.cmd("execute \":'<,'>m'>+1\"")
---     vim.cmd("normal! gv")
--- end
+function blockDown()
+  vim.cmd("execute \":move '>+1\"")
+  vim.cmd("normal! gv")
+end

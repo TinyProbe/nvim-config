@@ -127,8 +127,8 @@ keymap("n", { silent = true }, "<A-j>", "<cmd>UsrCmdLineDown<cr>")
 keymap("n", { silent = true }, "<A-k>", "<cmd>UsrCmdLineUp<cr>")
 keymap("v", { silent = true }, "<A-h>", "<cmd>UsrCmdBlockOutdent<cr>")
 keymap("v", { silent = true }, "<A-l>", "<cmd>UsrCmdBlockIndent<cr>")
-keymap("v", { silent = true }, "<A-j>", "<cmd>UsrCmdBlockDown<cr>")
-keymap("v", { silent = true }, "<A-k>", "<cmd>UsrCmdBlockUp<cr>")
+keymap("v", { silent = true }, "<A-j>", ":move '>+1<cr>gv")
+keymap("v", { silent = true }, "<A-k>", ":move -2<cr>gv")
 
 -- abbrevs(paste)
   -- html
