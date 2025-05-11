@@ -12,7 +12,6 @@ return {
                 },
             },
         })
-
         -- mason-lspconfig settings
         require("mason-lspconfig").setup({
             ensure_installed = {

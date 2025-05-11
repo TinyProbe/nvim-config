@@ -1,52 +1,32 @@
+local space2 = {
+    tabsize     = 2,
+    expandtab   = true,
+}
+local space4 = {
+    tabsize     = 4,
+    expandtab   = true,
+}
+local tab2 = {
+    tabsize     = 2,
+    expandtab   = false,
+}
+local tab4 = {
+    tabsize     = 4,
+    expandtab   = false,
+}
 local filetype_info = {
-    html = {
-        tabsize = 2,
-        expandtab = true,
-    },
-    css = {
-        tabsize = 2,
-        expandtab = true,
-    },
-    javascript = {
-        tabsize = 2,
-        expandtab = true,
-    },
-    javascriptreact = {
-        tabsize = 2,
-        expandtab = true,
-    },
-    typescript = {
-        tabsize = 2,
-        expandtab = true,
-    },
-    typescriptreact = {
-        tabsize = 2,
-        expandtab = true,
-    },
-    php = {
-        tabsize = 2,
-        expandtab = true,
-    },
-    yaml = {
-        tabsize = 2,
-        expandtab = true,
-    },
-    swift = {
-        tabsize = 2,
-        expandtab = true,
-    },
-    dart = {
-        tabsize = 2,
-        expandtab = true,
-    },
-    make = {
-        tabsize = 4,
-        expandtab = false,
-    },
-    default = {
-        tabsize = 4,
-        expandtab = true,
-    },
+    html            = space2,
+    css             = space2,
+    javascript      = space2,
+    javascriptreact = space2,
+    typescript      = space2,
+    typescriptreact = space2,
+    php             = space2,
+    yaml            = space2,
+    swift           = space2,
+    dart            = space2,
+    make            = tab4,
+    default         = space4,
 }
 
 vim.api.nvim_create_augroup("BufDefault", {})
@@ -59,7 +39,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
         if filetype_info[extension] == nil then
             extension = "default"
         end
-        resizeTab(filetype_info[extension]["tabsize"])
-        vim.bo.expandtab = filetype_info[extension]["expandtab"]
+        resizeTab(filetype_info[extension].tabsize)
+        vim.bo.expandtab = filetype_info[extension].expandtab
     end,
 })

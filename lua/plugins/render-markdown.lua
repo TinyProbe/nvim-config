@@ -6,5 +6,9 @@ return {
         -- 'echasnovski/mini.icons'        -- choose one
         'nvim-tree/nvim-web-devicons'   -- choose one
     },
-    opts = {},
+    config = function()
+        require("render-markdown").setup({
+
+        })
+    end
 }

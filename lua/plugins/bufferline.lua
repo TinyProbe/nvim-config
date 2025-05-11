@@ -9,13 +9,17 @@ return {
                 mode = "tabs",
                 style_preset = { bufferline.style_preset.no_italic },
                 themeable = true,
-                numbers = "none", -- "none" | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string
-                close_command = "bdelete! %d",
-                left_mouse_command = "buffer! %d",
-                middle_mouse_command = "bdelete! %d",
+                numbers = "ordinal", -- "none" | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string
+                close_command = "tabclose! %d",
+                left_mouse_command = "tabnext! %d",
+                middle_mouse_command = "tabclose! %d",
                 right_mouse_command = nil,
+                -- close_command = "bdelete! %d",
+                -- left_mouse_command = "buffer! %d",
+                -- middle_mouse_command = "bdelete! %d",
+                -- right_mouse_command = nil,
                 indicator = {
-                    icon = '▌', -- this should be omitted if indicator style is not 'icon'
+                    icon = '', -- this should be omitted if indicator style is not 'icon'
                     style = 'icon', -- 'icon' | 'underline' | 'none'
                 },
                 buffer_close_icon = '󰅖',
@@ -47,8 +51,8 @@ return {
                     -- This can be used to change how bufferline fetches the icon
                     -- for an element e.g. a buffer or a tab.
                     -- e.g.
-                    local icon, hl = require('nvim-web-devicons').
-                            get_icon_by_filetype(element.filetype, { default = false })
+                    local icon, hl = require('nvim-web-devicons')
+                        .get_icon_by_filetype(element.filetype, { default = false })
                     return icon, hl
                 end,
                 show_buffer_icons = true, -- true | false -- disable filetype icons for buffers

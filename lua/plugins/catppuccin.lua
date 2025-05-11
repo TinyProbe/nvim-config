@@ -3,9 +3,9 @@ return {
     priority = 1000,
     config = function()
         require("catppuccin").setup({
-            flavour = "macchiato", -- latte, frappe, macchiato, mocha
-            background = { -- :h background
-                light = "latte",
+            flavour = "macchiato",  -- latte, frappe, macchiato, mocha
+            background = {
+                light = "latte",    -- :help background
                 dark = "macchiato",
             },
             transparent_background = false, -- disables setting the background color.
@@ -45,7 +45,6 @@ return {
                 -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
             },
         })
-
-        vim.cmd.colorscheme("catppuccin")
+        vim.cmd("colorscheme catppuccin")
     end,
 }

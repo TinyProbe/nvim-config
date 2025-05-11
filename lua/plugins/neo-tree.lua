@@ -14,8 +14,8 @@ return {
                 width = 36,
                 mappings = {
                     ["<Space>"] = "noop",
-                    ["t"] = "toggle_node",
-                    ["T"] = "open_tabnew",
+                    ["t"] = "open_tab",
+                    ["T"] = "open_tab_drop",
                     ["l"] = "open",
                     ["L"] = "focus_preview",
                     ["C"] = "noop",

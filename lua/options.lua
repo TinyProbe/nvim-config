@@ -625,7 +625,6 @@ vim.opt.infercase = true
 
 -- showmatch	when inserting a bracket, briefly jump to its match
 -- 	set nosm	sm
--- vim.opt.showmatch = true
 
 -- matchtime	tenth of a second to show a match for 'showmatch'
 -- 	set mat=5
@@ -821,7 +820,6 @@ vim.opt.timeout = false
 
 -- ttimeout	allow timing out halfway into a key code
 -- 	set ttimeout	nottimeout
-vim.opt.ttimeout = false
 
 -- timeoutlen	time in msec for 'timeout'
 -- 	set tm=1000
@@ -829,7 +827,6 @@ vim.opt.timeoutlen = 0
 
 -- ttimeoutlen	time in msec for 'ttimeout'
 -- 	set ttm=50
-vim.opt.ttimeoutlen = 0
 
 -- 17 reading and writing files
 
