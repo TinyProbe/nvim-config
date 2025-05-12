@@ -14,9 +14,9 @@ return {
     }
     local filename = {
       'filename',
+      path = 0,               -- 0: just filename, 1: relative path, 2: absolute path
       file_status = true,     -- displays file status (readonly status, modified status)
       newfile_status = true,
-      path = 0,               -- 0: just filename, 1: relative path, 2: absolute path
       shorting_target = 20,
       symbols = {
         modified = ' ',      -- Text to show when the file is modified
@@ -55,9 +55,9 @@ return {
         always_show_tabline = true,
         globalstatus = true,
         refresh = {
-          statusline = 100,
-          tabline = 100,
-          winbar = 100,
+          statusline = 10,
+          tabline = 10,
+          winbar = 10,
         }
       },
       sections = {
