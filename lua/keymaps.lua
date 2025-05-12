@@ -39,6 +39,7 @@ keymap("n", { silent = true }, "<leader>6", "<cmd>tabnext 6<cr>")
 keymap("n", { silent = true }, "<leader>7", "<cmd>tabnext 7<cr>")
 keymap("n", { silent = true }, "<leader>8", "<cmd>tabnext 8<cr>")
 keymap("n", { silent = true }, "<leader>9", "<cmd>tabnext 9<cr>")
+keymap("n", { silent = true }, "<leader>10", "<cmd>tabnext 0<cr>")
 
 -- window
 keymap("n", { silent = true }, "<leader>w", "<C-w>")
@@ -127,8 +128,8 @@ keymap("n", { silent = true }, "<A-j>", "<cmd>UsrCmdLineDown<cr>")
 keymap("n", { silent = true }, "<A-k>", "<cmd>UsrCmdLineUp<cr>")
 keymap("v", { silent = true }, "<A-h>", "<cmd>UsrCmdBlockOutdent<cr>")
 keymap("v", { silent = true }, "<A-l>", "<cmd>UsrCmdBlockIndent<cr>")
-keymap("v", { silent = true }, "<A-j>", ":move '>+1<cr>gv")
-keymap("v", { silent = true }, "<A-k>", ":move -2<cr>gv")
+keymap("v", { silent = true }, "<A-j>", "<cmd>UsrCmdBlockDown<cr>")
+keymap("v", { silent = true }, "<A-k>", "<cmd>UsrCmdBlockUp<cr>")
 
 -- abbrevs(paste)
   -- html

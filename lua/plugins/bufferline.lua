@@ -23,10 +23,10 @@ return {
         close_icon = '',
         left_trunc_marker = '',
         right_trunc_marker = '',
-        max_name_length = 20,
+        max_name_length = 14,
         max_prefix_length = 12, -- prefix used when a buffer is de-duplicated
         truncate_names = true, -- whether or not tab names should be truncated
-        tab_size = 20,
+        tab_size = 16,
         diagnostics = false, -- false | "nvim_lsp" | "coc"
         diagnostics_update_in_insert = false,  -- need edit
         diagnostics_update_on_event = true, -- use nvim's diagnostic handler
