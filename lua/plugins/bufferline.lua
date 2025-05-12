@@ -6,10 +6,10 @@ return {
     local bufferline = require("bufferline")
     bufferline.setup({
       options = {
-        mode = "buffers",
-        style_preset = { bufferline.style_preset.no_italic },
         themeable = true,
+        mode = "buffers",
         numbers = "none", -- "none" | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string
+        style_preset = { bufferline.style_preset.no_italic },
         close_command = "bdelete! %d",
         left_mouse_command = "buffer! %d",
         middle_mouse_command = "bdelete! %d",
@@ -23,10 +23,10 @@ return {
         close_icon = '',
         left_trunc_marker = '',
         right_trunc_marker = '',
-        max_name_length = 14,
-        max_prefix_length = 12, -- prefix used when a buffer is de-duplicated
-        truncate_names = true, -- whether or not tab names should be truncated
         tab_size = 16,
+        max_name_length = 16,
+        max_prefix_length = 8, -- prefix used when a buffer is de-duplicated
+        truncate_names = true, -- whether or not tab names should be truncated
         diagnostics = false, -- false | "nvim_lsp" | "coc"
         diagnostics_update_in_insert = false,  -- need edit
         diagnostics_update_on_event = true, -- use nvim's diagnostic handler
@@ -35,7 +35,7 @@ return {
         end,
         offsets = {
           {
-            filetype = "NvimTree",
+            filetype = "neo-tree",
             text = "File Explorer", -- "File Explorer" | function
             text_align = "center", -- "left" | "center" | "right"
             separator = true,
@@ -48,7 +48,7 @@ return {
           -- for an element e.g. a buffer or a tab.
           -- e.g.
           local icon, hl = require('nvim-web-devicons')
-          .get_icon_by_filetype(element.filetype, { default = false })
+              .get_icon_by_filetype(element.filetype, { default = false })
           return icon, hl
         end,
         show_buffer_icons = true, -- true | false -- disable filetype icons for buffers
@@ -70,7 +70,7 @@ return {
           reveal = { "close" },
           delay = 0,
         },
-        sort_by = 'insert_at_end', -- 'insert_after_current' |'insert_at_end' | 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
+        -- sort_by = 'insert_at_end', -- 'insert_after_current' |'insert_at_end' | 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
         --   -- add custom logic
         --   return buffer_a.modified > buffer_b.modified
         -- end

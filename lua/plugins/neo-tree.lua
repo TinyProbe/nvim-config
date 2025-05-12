@@ -6,17 +6,18 @@ return {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
   },
+  lazy = false,
   config = function()
     require("neo-tree").setup({
       close_if_last_window = true,
       window = {
-        position = "right",
         width = 36,
+        position = "right",
         mappings = {
           ["<Space>"] = "noop",
           ["t"] = "open_tabnew",
           ["T"] = "open_tab_drop",
-          ["l"] = "open_drop",
+          ["l"] = "open",
           ["L"] = "focus_preview",
           ["C"] = "noop",
           ["h"] = "close_node",
@@ -28,6 +29,7 @@ return {
       filesystem = {
         follow_current_file = { enabled = true },
         filtered_items = {
+          visible = true,
           hide_dotfiles = false,
           hide_gitignored = false,
           hide_by_name = { "node_modules" },
@@ -36,12 +38,13 @@ return {
             -- "thumbs.db",
           },
         },
+        command = {},
       },
       source_selector = {
         winbar = true,      -- toggle to show selector on winbar
         statusline = true,  -- toggle to show selector on statusline
-        show_scrolled_off_parent_node = true,       -- boolean
-        sources = {                                 -- table
+        show_scrolled_off_parent_node = true,   -- boolean
+        sources = {                             -- table
           {
             source = "filesystem",              -- string
             display_name = " 󰉓 Files "          -- string | nil
@@ -104,15 +107,10 @@ return {
             error = "DiagnosticSignError",
           },
         },
-        indent = {
-          with_expanders = true,
-          expander_collapsed = "",
-          expander_expanded = "",
-          expander_highlight = "NeoTreeExpander",
-        },
       },
     })
 
-    keymap("n", { desc = "File explorer" }, "<leader>fe", "<cmd>Neotree toggle<cr>")
+    keymap("n", { silent = true, desc = "File explorer" },
+        "<leader>fe", "<cmd>Neotree toggle<cr>")
   end,
 }

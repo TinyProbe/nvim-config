@@ -27,14 +27,14 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   require("plugins.autopairs"),
   require("plugins.autosave"),
-  require("plugins.bufferline"),
+  -- require("plugins.bufferline"),
   require("plugins.catppuccin"),
   require("plugins.colorizer"),
   require("plugins.comment"),
   require("plugins.indentline"),
   require("plugins.lualine"),
   require("plugins.mason"),
-  require("plugins.mini-icons"),      -- need checkhealth
+  require("plugins.mini-icons"),  -- need checkhealth
   require("plugins.neo-tree"),
   require("plugins.nvim-cmp"),
   require("plugins.nvim-lspconfig"),
