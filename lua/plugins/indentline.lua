@@ -14,7 +14,7 @@ return {
     end)
 
     require("ibl").setup({
-      debounce = 50,
+      debounce = 10,
       indent = {
         char = "▏",
         highlight = { "IndentLine" },

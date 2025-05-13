@@ -2,9 +2,9 @@ return {
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
   dependencies = {
-    "nvim-tree/nvim-web-devicons",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
+    "nvim-tree/nvim-web-devicons",
   },
   lazy = false,
   config = function()
@@ -17,7 +17,10 @@ return {
           ["<Space>"] = "noop",
           ["t"] = "open_tabnew",
           ["T"] = "open_tab_drop",
-          ["l"] = "open",
+          ["l"] = function(state)
+            local node = state.tree:get_node()
+            vim.print(node.name)
+          end,
           ["L"] = "focus_preview",
           ["C"] = "noop",
           ["h"] = "close_node",
@@ -38,7 +41,6 @@ return {
             -- "thumbs.db",
           },
         },
-        command = {},
       },
       source_selector = {
         winbar = true,      -- toggle to show selector on winbar

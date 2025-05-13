@@ -38,7 +38,7 @@ return {
       keymap.set("n", "K", vim.lsp.buf.hover, opts)
       -- opts.desc = "Restart LSP"
       -- keymap.set("n", "<leader>rs", "<cmd>LspRestart<cr>", opts)
-      client.server_capabilities.semanticTokensProvider = nil
+      -- client.server_capabilities.semanticTokensProvider = nil
     end
     local capabilities = cmp_nvim_lsp.default_capabilities()
     local signs = {

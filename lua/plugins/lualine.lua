@@ -2,7 +2,7 @@ return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
-    require('nvim-web-devicons').setup({})
+    local devicons = require('nvim-web-devicons')
     local hide_in_width = function()
       return vim.fn.winwidth(0) > 80
     end
@@ -39,11 +39,32 @@ return {
       colored = false,
       symbols = { added = ' ', modified = ' ', removed = ' ' },
     }
+    local tabs = {
+      'tabs',
+      path = 0,
+      tab_max_length = 16,
+      max_length = 100,
+      mode = 2,
+      use_mode_colors = true,
+      show_modified_status = true,  -- Shows a symbol next to the tab name if the file has been modified
+      symbols = { modified = ' ●' },
+      separator = { right = '' },
+      fmt = function(name, context)
+        local dotpos = string.find(name, ".", 0, true)
+        if dotpos == nil then
+          dotpos = 1
+        end
+        local extension = string.sub(name, dotpos + 1)
+        local icon = devicons.get_icon(name, extension, { default = true })
+        return icon .. ' ' .. name
+      end
+    }
+
+    --              
     require('lualine').setup({
       options = {
         theme = 'auto',
         icons_enabled = true,
-        --              
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = {
@@ -83,19 +104,7 @@ return {
       },
       -- switch to the bufferline instead of this option
       tabline = {
-        lualine_a = {
-          {
-            'tabs',
-            path = 0,
-            tab_max_length = 16,
-            max_length = 100,
-            mode = 2,
-            use_mode_colors = true,
-            show_modified_status = true,  -- Shows a symbol next to the tab name if the file has been modified
-            symbols = { modified = ' ●' },
-            separator = { right = '' },
-          },
-        },
+        lualine_a = { tabs },
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},

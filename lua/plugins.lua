@@ -35,7 +35,7 @@ require("lazy").setup({
   require("plugins.lualine"),
   require("plugins.mason"),
   require("plugins.mini-icons"),  -- need checkhealth
-  require("plugins.neo-tree"),
+  -- require("plugins.neo-tree"),
   require("plugins.nvim-cmp"),
   require("plugins.nvim-lspconfig"),
   require("plugins.nvim-surround"),
@@ -45,6 +45,17 @@ require("lazy").setup({
   require("plugins.treesitter"),
   require("plugins.which-key"),
 
-  -- vim
-  "dart-lang/dart-vim-plugin",
+  -- vim plugins
+  { 'dart-lang/dart-vim-plugin' },
+  { 'preservim/nerdtree' },
 })
+
+-- nerdtree
+  -- option
+vim.g.NERDTreeShowHidden = true
+vim.g.NERDTreeWinPos = "right"
+vim.g.NERDTreeDirArrowExpandable = ""
+vim.g.NERDTreeDirArrowCollapsible = ""
+  -- keymap
+keymap("n", { silent = true }, "<leader>fe", "<cmd>NERDTreeToggle<cr>")
+keymap("n", { silent = true }, "<leader>fv", "<cmd>NERDTreeToggleVCS<cr>")

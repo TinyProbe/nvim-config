@@ -39,7 +39,7 @@ keymap("n", { silent = true }, "<leader>6", "<cmd>tabnext 6<cr>")
 keymap("n", { silent = true }, "<leader>7", "<cmd>tabnext 7<cr>")
 keymap("n", { silent = true }, "<leader>8", "<cmd>tabnext 8<cr>")
 keymap("n", { silent = true }, "<leader>9", "<cmd>tabnext 9<cr>")
-keymap("n", { silent = true }, "<leader>10", "<cmd>tabnext 0<cr>")
+keymap("n", { silent = true }, "<leader>0", "<cmd>tabnext 10<cr>")
 
 -- window
 keymap("n", { silent = true }, "<leader>w", "<C-w>")
