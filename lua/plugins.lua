@@ -27,15 +27,14 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   require("plugins.autopairs"),
   require("plugins.autosave"),
-  -- require("plugins.bufferline"),
   require("plugins.catppuccin"),
   require("plugins.colorizer"),
   require("plugins.comment"),
   require("plugins.indentline"),
   require("plugins.lualine"),
   require("plugins.mason"),
-  require("plugins.mini-icons"),  -- need checkhealth
-  -- require("plugins.neo-tree"),
+  require("plugins.mini-icons"),      -- need checkhealth
+  require("plugins.neo-tree"),
   require("plugins.nvim-cmp"),
   require("plugins.nvim-lspconfig"),
   require("plugins.nvim-surround"),
@@ -47,15 +46,4 @@ require("lazy").setup({
 
   -- vim plugins
   { 'dart-lang/dart-vim-plugin' },
-  { 'preservim/nerdtree' },
 })
-
--- nerdtree
-  -- option
-vim.g.NERDTreeShowHidden = true
-vim.g.NERDTreeWinPos = "right"
-vim.g.NERDTreeDirArrowExpandable = ""
-vim.g.NERDTreeDirArrowCollapsible = ""
-  -- keymap
-keymap("n", { silent = true }, "<leader>fe", "<cmd>NERDTreeToggle<cr>")
-keymap("n", { silent = true }, "<leader>fv", "<cmd>NERDTreeToggleVCS<cr>")

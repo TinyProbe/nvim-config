@@ -52,7 +52,7 @@ return {
       fmt = function(name, context)
         local dotpos = string.find(name, ".", 0, true)
         if dotpos == nil then
-          dotpos = 1
+          dotpos = 0
         end
         local extension = string.sub(name, dotpos + 1)
         local icon = devicons.get_icon(name, extension, { default = true })

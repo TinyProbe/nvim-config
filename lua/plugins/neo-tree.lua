@@ -11,16 +11,19 @@ return {
     require("neo-tree").setup({
       close_if_last_window = true,
       window = {
-        width = 36,
+        width = 32,
         position = "right",
         mappings = {
           ["<Space>"] = "noop",
           ["t"] = "open_tabnew",
-          ["T"] = "open_tab_drop",
-          ["l"] = function(state)
-            local node = state.tree:get_node()
-            vim.print(node.name)
-          end,
+          ["T"] = {
+            desc = "open_tabnew_silent",
+            function(state)
+              local node = state.tree:get_node()
+              vim.print(node.name)
+            end,
+          },
+          ["l"] = "open",
           ["L"] = "focus_preview",
           ["C"] = "noop",
           ["h"] = "close_node",
