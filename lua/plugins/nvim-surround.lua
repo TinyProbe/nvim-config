@@ -5,6 +5,12 @@ return {
   config = function()
     require("nvim-surround").setup({
       -- Configuration here, or leave empty to use defaults
+      -- keymaps = {},       -- Defines plugin keymaps
+      -- surrounds = {},     -- Defines surround keys and behavior
+      -- aliases = {},       -- Defines aliases
+      -- highlight = {},     -- Defines highlight behavior
+      -- move_cursor = {},   -- Defines cursor behavior
+      -- indent_lines = {},  -- Defines line indentation behavior
     })
   end
 }

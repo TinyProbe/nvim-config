@@ -29,7 +29,7 @@ return {
       'diagnostics',
       sources = { 'nvim_diagnostic' },
       sections = { 'error', 'warn' },
-      symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+      symbols = { error = '● ', warn = '● ', info = '● ', hint = '● ' },
       colored = true,
       update_in_insert = false,
       always_visible = false,
@@ -50,7 +50,7 @@ return {
       symbols = { modified = ' ●' },
       separator = { right = '' },
       fmt = function(name, context)
-        local dotpos = string.find(name, ".", 0, true)
+        local dotpos = string.find(name, ".", 1, true)
         if dotpos == nil then
           dotpos = 0
         end

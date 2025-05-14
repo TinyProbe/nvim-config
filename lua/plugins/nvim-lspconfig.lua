@@ -6,8 +6,34 @@ return {
   },
   event = { "BufReadPre", "BufNewFile" },
   config = function()
-    local lspconfig = require("lspconfig")
-    local cmp_nvim_lsp = require("cmp_nvim_lsp")
+    vim.api.nvim_create_augroup("LSP", {})
+    vim.api.nvim_create_autocmd({ "LspAttach" }, {
+      group = "LSP",
+      pattern = { "*" },
+      callback = function(args)
+        -- comments is default value
+        vim.diagnostic.config({
+          -- underline = true,
+          virtual_text = { prefix = "●" },
+          -- virtual_lines = false,
+          signs = false,
+          -- signs = {
+          --   text = {
+          --     [vim.diagnostic.severity.ERROR] = " ",
+          --     [vim.diagnostic.severity.WARN] = " ",
+          --     [vim.diagnostic.severity.INFO] = " ",
+          --     [vim.diagnostic.severity.HINT] = " ",
+          --   },
+          -- },
+          -- float = false,
+          -- update_in_insert = false,
+          -- severity_sort = false,
+          -- jump = vim.diagnostic.jump(),
+        })
+      end,
+    })
+
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
     local on_attach = function(client, bufnr)
       local keymap = vim.keymap
       local opts = { noremap = true, silent = true, }
@@ -40,29 +66,17 @@ return {
       -- keymap.set("n", "<leader>rs", "<cmd>LspRestart<cr>", opts)
       -- client.server_capabilities.semanticTokensProvider = nil
     end
-    local capabilities = cmp_nvim_lsp.default_capabilities()
-    local signs = {
-      -- Error = " ", Warn = " ", Info = " ", Hint = " ",
-      Error = "", Warn = "", Info = "", Hint = "",
-    }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, {
-        text = icon,
-        texthl = hl,
-        numhl = "",
-      })
-    end
-    lspconfig["vimls"].setup({
+
+    vim.lsp.config("vimls", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
-    lspconfig["lua_ls"].setup({
+    vim.lsp.config("lua_ls", {
       capabilities = capabilities,
       on_attach = on_attach,
       settings = {
         Lua = {
-          diagnostics = { globals = { "vim", } },
+          diagnostics = { globals = { "vim" } },
           workspace = {
             library = {
               [vim.fn.expand("$VIMRUNTIME/lua")] = true,
@@ -72,55 +86,55 @@ return {
         },
       },
     })
-    lspconfig["html"].setup({
+    vim.lsp.config("html", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
-    lspconfig["cssls"].setup({
+    vim.lsp.config("cssls", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
-    lspconfig["tailwindcss"].setup({
+    vim.lsp.config("tailwindcss", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
-    lspconfig["ts_ls"].setup({
+    vim.lsp.config("ts_ls", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
-    lspconfig["clangd"].setup({
+    vim.lsp.config("clangd", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
-    lspconfig["csharp_ls"].setup({
+    vim.lsp.config("csharp_ls", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
-    lspconfig["jdtls"].setup({
+    vim.lsp.config("jdtls", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
-    lspconfig["kotlin_language_server"].setup({
+    vim.lsp.config("kotlin_language_server", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
-    lspconfig["pyright"].setup({
+    vim.lsp.config("pyright", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
-    lspconfig["rust_analyzer"].setup({
+    vim.lsp.config("rust_analyzer", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
-    lspconfig["zls"].setup({
+    vim.lsp.config("zls", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
-    lspconfig["gopls"].setup({
+    vim.lsp.config("gopls", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
-    lspconfig["dartls"].setup({
+    vim.lsp.config("dartls", {
       capabilities = capabilities,
       on_attach = on_attach,
       filetypes = { "dart" },

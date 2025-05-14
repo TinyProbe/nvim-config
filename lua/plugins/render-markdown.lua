@@ -8,7 +8,7 @@ return {
   },
   config = function()
     require("render-markdown").setup({
-
+      -- configuration in here. check the :help render-markdown
     })
   end
 }

@@ -46,4 +46,8 @@ require("lazy").setup({
 
   -- vim plugins
   { 'dart-lang/dart-vim-plugin' },
+  { 'AndrewRadev/popup_scrollbar.vim' },
 })
+
+vim.g.popup_scrollbar_auto = true
+vim.g.popup_scrollbar_shape = { head = ' ', body = '┃', tail = ' ' }

@@ -34,7 +34,6 @@ vim.api.nvim_create_augroup("BufDefault", {})
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
   group = "BufDefault",
   pattern = { "*" },
-
   callback = function()
     local extension = vim.bo.filetype
     if filetype_info[extension] == nil then
@@ -42,5 +41,19 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     end
     resizeTab(filetype_info[extension].tabsize)
     vim.bo.expandtab = filetype_info[extension].expandtab
+  end,
+})
+
+-- neo-tree
+vim.api.nvim_create_augroup("NeotreeKeeper", {})
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  group = "NeotreeKeeper",
+  pattern = { "*" },
+  callback = function()
+    if NeotreeState == nil then
+      return
+    end
+    local action = NeotreeState and "focus" or "close"
+    require("neo-tree.command").execute({ action = action })
   end,
 })

@@ -19,11 +19,11 @@ return {
           ["T"] = {
             desc = "open_tabnew_silent",
             function(state)
-              local node = state.tree:get_node()
-              vim.print(node.name)
+              -- local node = state.tree:get_node()
+              -- vim.print(node.name)
             end,
           },
-          ["l"] = "open",
+          ["l"] = "open_tabnew",
           ["L"] = "focus_preview",
           ["C"] = "noop",
           ["h"] = "close_node",
@@ -86,24 +86,24 @@ return {
         git_status = {
           symbols = {
             -- Change type
-            added     = "✚",
-            deleted   = "✖",
-            modified  = "",
-            renamed   = "󰁕",
+            added     = "",
+            deleted   = "",
+            modified  = "",
+            renamed   = "",
             -- Status type
-            untracked = "",
-            ignored   = "",
-            unstaged  = "󰄱",
-            staged    = "",
-            conflict  = "",
+            untracked = "",
+            ignored   = "",
+            unstaged  = "",
+            staged    = "",
+            conflict  = "",
           }
         },
         diagnostics = {
           symbols = {
-            hint = "󰌵",
-            info = " ",
-            warn = " ",
-            error = " ",
+            hint = "●",
+            info = "●",
+            warn = "●",
+            error = "●",
           },
           highlights = {
             hint = "DiagnosticSignHint",
@@ -113,9 +113,23 @@ return {
           },
         },
       },
+      -- syncronize NeotreeState
+      event_handlers = {
+        {
+          event = "neo_tree_window_before_open",
+          handler = function()
+            NeotreeState = true
+          end,
+        }, {
+          event = "neo_tree_window_before_close",
+          handler = function()
+            NeotreeState = false
+          end,
+        },
+      },
     })
 
-    keymap("n", { silent = true, desc = "File explorer" },
+    keymap("n", { silent = true, desc = "Neotree Toggle" },
         "<leader>fe", "<cmd>Neotree toggle<cr>")
   end,
 }
