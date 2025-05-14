@@ -37,6 +37,7 @@ require("lazy").setup({
   require("plugins.neo-tree"),
   require("plugins.nvim-cmp"),
   require("plugins.nvim-lspconfig"),
+  require("plugins.nvim-scrollbar"),
   require("plugins.nvim-surround"),
   require("plugins.render-markdown"),
   require("plugins.telescope"),
@@ -46,8 +47,4 @@ require("lazy").setup({
 
   -- vim plugins
   { 'dart-lang/dart-vim-plugin' },
-  { 'AndrewRadev/popup_scrollbar.vim' },
 })
-
-vim.g.popup_scrollbar_auto = true
-vim.g.popup_scrollbar_shape = { head = ' ', body = '┃', tail = ' ' }
