@@ -39,7 +39,7 @@ require("lazy").setup({
   require("plugins.nvim-lspconfig"),
   require("plugins.nvim-scrollbar"),
   require("plugins.nvim-surround"),
-  require("plugins.render-markdown"),
+  -- require("plugins.render-markdown"),
   require("plugins.telescope"),
   require("plugins.todo-comments"),
   require("plugins.treesitter"),

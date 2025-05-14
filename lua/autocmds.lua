@@ -53,7 +53,15 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     if NeotreeState == nil then
       return
     end
-    local action = NeotreeState and "focus" or "close"
+    local action
+    if NeotreeState then
+      if not vim.bo.modifiable then
+        return
+      end
+      action = "focus"
+    else
+      action = "close"
+    end
     require("neo-tree.command").execute({ action = action })
   end,
 })
