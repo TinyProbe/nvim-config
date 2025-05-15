@@ -11,15 +11,14 @@ return {
         filetype_is_not = {},
       },
       prompt = {
-        enable = true,
+        enable = false,
         style = 'stdout',
         message = function()
-          -- return 'autosave ' .. vim.fn.strftime('%H:%M:%S')
-          return ''
+          return 'autosave ' .. vim.fn.strftime('%H:%M:%S')
         end,
       },
       write_all_buffers = false,
-      debounce_delay = 100,
+      debounce_delay = 200,
     })
   end,
 }
