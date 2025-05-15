@@ -50,18 +50,13 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   group = "NeotreeKeeper",
   pattern = { "*" },
   callback = function()
-    if NeotreeState == nil then
+    if NeotreeState == nil then return end
+    local buffer = vim.api.nvim_buf_get_name(0)
+    if buffer == "" and not vim.bo.modifiable then
+      -- if neovim opened from directory, skip it
       return
     end
-    local action
-    if NeotreeState then
-      if not vim.bo.modifiable then
-        return
-      end
-      action = "focus"
-    else
-      action = "close"
-    end
+    local action = NeotreeState and "focus" or "close"
     require("neo-tree.command").execute({ action = action })
   end,
 })
