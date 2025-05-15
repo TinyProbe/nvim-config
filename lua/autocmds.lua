@@ -31,6 +31,8 @@ local filetype_info = {
 }
 
 vim.api.nvim_create_augroup("BufDefault", {})
+
+-- basic setting each filetypes
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
   group = "BufDefault",
   pattern = { "*" },
@@ -44,10 +46,9 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   end,
 })
 
--- neo-tree
-vim.api.nvim_create_augroup("NeotreeKeeper", {})
+-- neo-tree syncronize between each tabs
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  group = "NeotreeKeeper",
+  group = "BufDefault",
   pattern = { "*" },
   callback = function()
     -- `NeotreeState` is a global variable that managed by neo-tree plugin's

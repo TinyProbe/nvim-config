@@ -14,7 +14,7 @@ return {
         -- comments is default value
         vim.diagnostic.config({
           -- underline = true,
-          virtual_text = { prefix = " ●" },
+          virtual_text = { prefix = "" },
           -- virtual_lines = false,
           signs = false,
           -- signs = {
