@@ -47,7 +47,7 @@ return {
       mode = 2,
       use_mode_colors = true,
       show_modified_status = true,  -- Shows a symbol next to the tab name if the file has been modified
-      symbols = { modified = ' ●' },
+      symbols = { modified = ' ' },
       separator = { right = '' },
       fmt = function(name, context)
         local dotpos = string.find(name, ".", 1, true)
