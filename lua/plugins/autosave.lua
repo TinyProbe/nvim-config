@@ -19,7 +19,7 @@ return {
         end,
       },
       write_all_buffers = false,
-      debounce_delay = 1000,
+      debounce_delay = 100,
     })
   end,
 }
