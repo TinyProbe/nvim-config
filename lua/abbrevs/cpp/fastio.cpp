@@ -8,9 +8,13 @@ class Fastio {
 
 public:
     Fastio() : read_len_(), read_cur_(), write_len_() {}
-    ~Fastio() {
+    ~Fastio() { flush(); }
+
+    inline void flush() {
         try {
-            fwrite(write_buffer_, sizeof(char), write_len_, stdout);
+            if (write_len_ > 0)
+                fwrite(write_buffer_, sizeof(char), write_len_, stdout);
+            write_len_ = 0;
         } catch (exception const &e) {
             cerr << e.what() << '\n';
         }
@@ -22,10 +26,7 @@ public:
                 (!lower_compare(token, "false") ? false : atoll(token));
         return *this;
     }
-    inline Fastio &operator>>(char &c) {
-        do { c = readbyte(); } while (iswspace(c));
-        return *this;
-    }
+    inline Fastio &operator>>(char &c) { c = readbyte(); return *this; }
     inline Fastio &operator>>(short &s) { s = atoll(readtoken()); return *this; }
     inline Fastio &operator>>(int &i) { i = atoll(readtoken()); return *this; }
     inline Fastio &operator>>(long &l) { l = atoll(readtoken()); return *this; }
@@ -56,7 +57,9 @@ public:
     inline Fastio &operator<<(double d) { return *this << std::to_string(d); }
     inline Fastio &operator<<(long double ld) { return *this << std::to_string(ld); }
     inline Fastio &operator<<(char const *cstr) { writestring(cstr, -1); return *this; }
-    inline Fastio &operator<<(std::string const &str) { writestring(str.c_str(), str.size()); return *this; }
+    inline Fastio &operator<<(std::string const &str) {
+        writestring(str.c_str(), str.size()); return *this;
+    }
 
 private:
     inline int lower_compare(char const *lhs, char const *rhs) {
@@ -85,10 +88,10 @@ private:
         size_t len = 0;
         do
             token_buffer[len] = readbyte();
-        while (token_buffer[len] != '\0' && iswspace(token_buffer[len]));
+        while (token_buffer[len] && iswspace(token_buffer[len]));
         do
             token_buffer[++len] = readbyte();
-        while (token_buffer[len] != '\0' && !iswspace(token_buffer[len]));
+        while (token_buffer[len] && !iswspace(token_buffer[len]));
         token_buffer[len] = '\0';
         return token_buffer;
     }
@@ -96,8 +99,13 @@ private:
     inline void writestring(char const *cstr, size_t len) {
         if (len == (size_t)-1)
             len = strlen(cstr);
-        if (write_len_ + len > kBufferSize)
-            throw runtime_error("writestring(): write_buffer_: buffer overflow");
+        if (write_len_ + len > kBufferSize) {
+            flush();
+            if (write_len_ + len > kBufferSize) {
+                fwrite(cstr, sizeof(char), len, stdout);
+                return;
+            }
+        }
         memcpy(write_buffer_ + write_len_, cstr, len);
         write_len_ += len;
     }
