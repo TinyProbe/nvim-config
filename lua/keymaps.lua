@@ -138,6 +138,8 @@ keymap("n", { silent = true }, "<leader>phb", "<cmd>AbbrevHtmlBasic<cr>")
 keymap("n", { silent = true }, "<leader>pdb", "<cmd>AbbrevDartBasic<cr>")
 keymap("n", { silent = true }, "<leader>pdf", "<cmd>AbbrevDartStateful<cr>")
 keymap("n", { silent = true }, "<leader>pdl", "<cmd>AbbrevDartStateless<cr>")
+  -- cpp
+keymap("n", { silent = true }, "<leader>pcf", "<cmd>AbbrevCppFastio<cr>")
 
 -- convenience/inconvenience
 keymap("v", { silent = true }, "u", "<esc>u")

@@ -1,19 +1,25 @@
 -- html
 vim.api.nvim_create_user_command(
   "AbbrevHtmlBasic",
-  "read ~/.config/vim/abbrevs/html/basic.html", {}
+  "read ~/.config/nvim/lua/abbrevs/html/basic.html", {}
 )
 
 -- dart
 vim.api.nvim_create_user_command(
   "AbbrevDartBasic",
-  "read ~/.config/vim/abbrevs/dart/basic.dart", {}
+  "read ~/.config/nvim/lua/abbrevs/dart/basic.dart", {}
 )
 vim.api.nvim_create_user_command(
   "AbbrevDartStateful",
-  "read ~/.config/vim/abbrevs/dart/stateful.dart", {}
+  "read ~/.config/nvim/lua/abbrevs/dart/stateful.dart", {}
 )
 vim.api.nvim_create_user_command(
   "AbbrevDartStateless",
-  "read ~/.config/vim/abbrevs/dart/stateless.dart", {}
+  "read ~/.config/nvim/lua/abbrevs/dart/stateless.dart", {}
+)
+
+-- cpp
+vim.api.nvim_create_user_command(
+  "AbbrevCppFastio",
+  "read ~/.config/nvim/lua/abbrevs/cpp/fastio.cpp", {}
 )
