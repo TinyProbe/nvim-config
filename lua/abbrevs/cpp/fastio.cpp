@@ -56,16 +56,13 @@ public:
     inline Fastio &operator<<(float f) { return *this << std::to_string(f); }
     inline Fastio &operator<<(double d) { return *this << std::to_string(d); }
     inline Fastio &operator<<(long double ld) { return *this << std::to_string(ld); }
-    inline Fastio &operator<<(char const *cstr) { writestring(cstr, -1); return *this; }
-    inline Fastio &operator<<(std::string const &str) {
-        writestring(str.c_str(), str.size()); return *this;
-    }
+    inline Fastio &operator<<(char const *cstr) { writestr(cstr, -1); return *this; }
+    inline Fastio &operator<<(std::string const &str) { writestr(str.c_str(), str.size()); return *this; }
 
 private:
     inline int lower_compare(char const *lhs, char const *rhs) {
-        while (*lhs && *rhs && tolower(*lhs) == tolower(*rhs)) {
+        while (*lhs && *rhs && tolower(*lhs) == tolower(*rhs))
             ++lhs, ++rhs;
-        }
         return *lhs - *rhs;
     }
 
@@ -96,7 +93,7 @@ private:
         return token_buffer;
     }
 
-    inline void writestring(char const *cstr, size_t len) {
+    inline void writestr(char const *cstr, size_t len) {
         if (len == (size_t)-1)
             len = strlen(cstr);
         if (write_len_ + len > kBufferSize) {
