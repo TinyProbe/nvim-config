@@ -58,9 +58,9 @@ keymap("n", { silent = true }, "<leader>wN", "<cmd>new<cr>")
 -- <leader>wJ: move bottom with current window
 -- <leader>wK: move top with current window
 -- <leader>wL: move right with current window
--- <leader>w-: increase height with current window 
--- <leader>w+: decrease height with current window 
--- <leader>w_: max height with current window 
+-- <leader>w-: increase height with current window
+-- <leader>w+: decrease height with current window
+-- <leader>w_: max height with current window
 -- <leader>w<: increase width with current window
 -- <leader>w>: decrease width with current window
 -- <leader>w|: max width with current window

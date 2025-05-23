@@ -100,10 +100,10 @@ return {
         },
         diagnostics = {
           symbols = {
-            hint = "●",
-            info = "●",
-            warn = "●",
-            error = "●",
+            hint = "",
+            info = "",
+            warn = "",
+            error = "",
           },
           highlights = {
             hint = "DiagnosticSignHint",
