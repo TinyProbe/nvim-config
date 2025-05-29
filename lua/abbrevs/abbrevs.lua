@@ -7,6 +7,10 @@ vim.api.nvim_create_user_command(
   "AbbrevCppIsPrime",
   "read ~/.config/nvim/lua/abbrevs/cpp/isprime.cpp", {}
 )
+vim.api.nvim_create_user_command(
+  "AbbrevCppStopWatch",
+  "read ~/.config/nvim/lua/abbrevs/cpp/stopwatch.cpp", {}
+)
 
 -- html
 vim.api.nvim_create_user_command(

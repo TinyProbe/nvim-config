@@ -135,6 +135,7 @@ keymap("v", { silent = true }, "<A-k>", "<cmd>UsrCmdBlockUp<cr>")
   -- cpp
 keymap("n", { silent = true }, "<leader>pcf", "<cmd>AbbrevCppFastio<cr>")
 keymap("n", { silent = true }, "<leader>pcp", "<cmd>AbbrevCppIsPrime<cr>")
+keymap("n", { silent = true }, "<leader>pcs", "<cmd>AbbrevCppStopWatch<cr>")
   -- html
 keymap("n", { silent = true }, "<leader>phb", "<cmd>AbbrevHtmlBasic<cr>")
   -- dart
