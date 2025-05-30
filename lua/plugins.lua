@@ -26,7 +26,6 @@ vim.opt.rtp:prepend(lazypath)
 -- plugins
 require("lazy").setup({
   require("plugins.autopairs"),
-  require("plugins.autosave"),
   require("plugins.catppuccin"),
   require("plugins.colorizer"),
   require("plugins.comment"),

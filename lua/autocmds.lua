@@ -46,7 +46,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   end,
 })
 
--- neo-tree syncronize between each tabs
+-- synchronize neo-tree between each tabs
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
   group = "BufDefault",
   pattern = { "*" },
@@ -62,4 +62,36 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     local action = NeotreeState and "focus" or "close"
     require("neo-tree.command").execute({ action = action })
   end,
+})
+
+vim.api.nvim_create_augroup("EventCallback", {})
+
+-- autosave
+vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+  group = "EventCallback",
+  pattern = { "*" },
+  callback = function()
+    local buffer = vim.api.nvim_buf_get_name(0)
+    if buffer == "" or not vim.bo.modifiable then
+      return
+    end
+
+    local delay = 50
+    local interval = 10
+    local function save()
+      local curtime = vim.uv.hrtime() / 1000000
+      if curtime < SaveTime then
+        vim.defer_fn(save, interval)
+        return
+      end
+      vim.api.nvim_command("execute \":wa\"")
+      AutoSave = false
+    end
+
+    SaveTime = vim.uv.hrtime() / 1000000 + delay
+    if not AutoSave then
+      AutoSave = true
+      vim.defer_fn(save, interval)
+    end
+  end
 })
