@@ -66,7 +66,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 
 vim.api.nvim_create_augroup("EventCallback", {})
 
--- autosave
+-- Self made autosave
 vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
   group = "EventCallback",
   pattern = { "*" },
@@ -76,7 +76,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
       return
     end
 
-    local delay = 50
+    local delay = 100
     local interval = 10
     local function save()
       local curtime = vim.uv.hrtime() / 1000000
@@ -84,7 +84,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
         vim.defer_fn(save, interval)
         return
       end
-      vim.api.nvim_command("execute \":wa\"")
+      vim.api.nvim_command("execute \":silent wa\"")
       AutoSave = false
     end
 
