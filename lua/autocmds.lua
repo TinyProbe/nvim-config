@@ -51,12 +51,12 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   group = "BufDefault",
   pattern = { "*" },
   callback = function()
-    -- `NeotreeState` is a global variable that managed by neo-tree plugin's
-    -- event handlers
-    if NeotreeState == nil then return end
+    -- `NeotreeState` is a global variable that managed by neo-tree
+    if NeotreeState == nil then
+      return
+    end
     local buffer = vim.api.nvim_buf_get_name(0)
     if buffer == "" and not vim.bo.modifiable then
-      -- if neovim opened from directory, skip it
       return
     end
     local action = NeotreeState and "focus" or "close"
