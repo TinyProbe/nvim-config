@@ -225,7 +225,7 @@ vim.opt.list = true
 
 -- listchars	list of strings used for list mode
 -- 	set lcs=tab:>\ ,trail:-,nbsp:+
-vim.opt.listchars = "tab:→ ,trail:-,nbsp:+"
+vim.opt.listchars = "tab:→·,trail:-,nbsp:+"
 
 -- number	show the line number for each line
 	-- (local to window)
