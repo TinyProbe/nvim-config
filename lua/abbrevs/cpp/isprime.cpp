@@ -33,16 +33,14 @@ bool isprime(long long n) {
         long long x = modPow(e, d, n);
         if (x == 1 || x == n - 1) { continue; }
 
-        bool pass = false;
         for (long long r = 0; r < s - 1; ++r) {
             x = modMult(x, x, n);
-            if (x == n - 1) {
-                pass = true;
-                break;
-            }
+            if (x == n - 1) { goto NEXT; }
             if (x == 1) { return false; }
         }
-        if (!pass) { return false; }
+        return false;
+NEXT:
+        continue;
     }
     return true;
 }
