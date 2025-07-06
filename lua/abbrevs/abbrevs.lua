@@ -1,5 +1,9 @@
 -- cpp
 vim.api.nvim_create_user_command(
+  "AbbrevCppBinarySearch",
+  "read ~/.config/nvim/lua/abbrevs/cpp/binarysearch.cpp", {}
+)
+vim.api.nvim_create_user_command(
   "AbbrevCppFastio",
   "read ~/.config/nvim/lua/abbrevs/cpp/fastio.cpp", {}
 )

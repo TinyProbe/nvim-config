@@ -133,6 +133,7 @@ keymap("v", { silent = true }, "<A-k>", "<cmd>UsrCmdBlockUp<cr>")
 
 -- abbrevs(paste)
   -- cpp
+keymap("n", { silent = true }, "<leader>pcb", "<cmd>AbbrevCppBinarySearch<cr>")
 keymap("n", { silent = true }, "<leader>pcf", "<cmd>AbbrevCppFastio<cr>")
 keymap("n", { silent = true }, "<leader>pcp", "<cmd>AbbrevCppIsPrime<cr>")
 keymap("n", { silent = true }, "<leader>pcs", "<cmd>AbbrevCppStopWatch<cr>")
