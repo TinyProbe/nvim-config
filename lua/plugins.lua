@@ -26,13 +26,12 @@ vim.opt.rtp:prepend(lazypath)
 -- plugins
 require("lazy").setup({
   require("plugins.autopairs"),
-  require("plugins.catppuccin"),
   require("plugins.colorizer"),
   require("plugins.comment"),
   require("plugins.indentline"),
   require("plugins.lualine"),
   require("plugins.mason"),
-  require("plugins.mini-icons"),      -- need checkhealth
+  require("plugins.mini-icons"),      -- need for checkhealth
   require("plugins.neo-tree"),
   require("plugins.nvim-cmp"),
   require("plugins.nvim-lspconfig"),
@@ -41,6 +40,12 @@ require("lazy").setup({
   require("plugins.telescope"),
   require("plugins.treesitter"),
   require("plugins.which-key"),
+
+  -- colorscheme
+  -- require("plugins.catppuccin"),
+  -- require("plugins.kanagawa"),
+  -- require("plugins.tokyonight"),
+  require("plugins.solarized-osaka"),
 
   -- vim plugins
   { 'dart-lang/dart-vim-plugin' },
