@@ -43,9 +43,9 @@ require("lazy").setup({
 
   -- colorscheme
   -- require("plugins.catppuccin"),
-  -- require("plugins.kanagawa"),
+  require("plugins.kanagawa"),
   -- require("plugins.tokyonight"),
-  require("plugins.solarized-osaka"),
+  -- require("plugins.solarized-osaka"),
 
   -- vim plugins
   { 'dart-lang/dart-vim-plugin' },
