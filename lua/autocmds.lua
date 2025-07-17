@@ -76,15 +76,15 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
       return
     end
 
-    local delay = 100
-    local interval = 10
+    local delay = 50
+    local interval = 5
     local function save()
       local curtime = vim.uv.hrtime() / 1000000
       if curtime < SaveTime then
         vim.defer_fn(save, interval)
         return
       end
-      vim.api.nvim_command("execute \":silent wa\"")
+      vim.api.nvim_command("execute \":silent w\"")
       AutoSave = false
     end
 
