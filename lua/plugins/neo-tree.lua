@@ -114,19 +114,19 @@ return {
         },
       },
       -- syncronize NeotreeState
-      event_handlers = {
-        {
-          event = "neo_tree_window_before_open",
-          handler = function()
-            NeotreeState = true
-          end,
-        }, {
-          event = "neo_tree_window_before_close",
-          handler = function()
-            NeotreeState = false
-          end,
-        },
-      },
+      -- event_handlers = {
+      --   {
+      --     event = "neo_tree_window_before_open",
+      --     handler = function()
+      --       NeotreeState = true
+      --     end,
+      --   }, {
+      --     event = "neo_tree_window_before_close",
+      --     handler = function()
+      --       NeotreeState = false
+      --     end,
+      --   },
+      -- },
     })
 
     keymap("n", { silent = true, desc = "Neotree Toggle" },

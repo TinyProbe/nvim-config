@@ -47,22 +47,22 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 })
 
 -- synchronize neo-tree between each tabs
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  group = "BufDefault",
-  pattern = { "*" },
-  callback = function()
-    -- `NeotreeState` is a global variable that managed by neo-tree
-    if NeotreeState == nil then
-      return
-    end
-    local buffer = vim.api.nvim_buf_get_name(0)
-    if buffer == "" and not vim.bo.modifiable then
-      return
-    end
-    local action = NeotreeState and "focus" or "close"
-    require("neo-tree.command").execute({ action = action })
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "BufEnter" }, {
+--   group = "BufDefault",
+--   pattern = { "*" },
+--   callback = function()
+--     -- `NeotreeState` is a global variable that managed by neo-tree
+--     if NeotreeState == nil then
+--       return
+--     end
+--     local buffer = vim.api.nvim_buf_get_name(0)
+--     if buffer == "" and not vim.bo.modifiable then
+--       return
+--     end
+--     local action = NeotreeState and "focus" or "close"
+--     require("neo-tree.command").execute({ action = action })
+--   end,
+-- })
 
 vim.api.nvim_create_augroup("EventCallback", {})
 

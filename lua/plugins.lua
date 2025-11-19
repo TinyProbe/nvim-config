@@ -32,7 +32,7 @@ require("lazy").setup({
   require("plugins.lualine"),
   require("plugins.mason"),
   require("plugins.mini-icons"),      -- need for checkhealth
-  require("plugins.neo-tree"),
+  -- require("plugins.neo-tree"),
   require("plugins.nvim-cmp"),
   require("plugins.nvim-lspconfig"),
   require("plugins.nvim-scrollbar"),
@@ -49,4 +49,14 @@ require("lazy").setup({
 
   -- vim plugins
   { 'dart-lang/dart-vim-plugin' },
+  { 'preservim/nerdtree' },
 })
+
+
+vim.cmd([[
+
+" neo-tree
+let g:NERDTreeWinPos='right'
+let g:NERDTreeShowHidden=v:true
+
+]])
