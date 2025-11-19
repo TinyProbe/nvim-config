@@ -56,7 +56,6 @@ require("lazy").setup({
 vim.cmd([[
 
 " neo-tree
-let g:NERDTreeWinPos='right'
 let g:NERDTreeShowHidden=v:true
 
 ]])
