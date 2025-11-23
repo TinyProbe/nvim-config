@@ -12,7 +12,7 @@ return {
       close_if_last_window = true,
       window = {
         width = 32,
-        position = "right",
+        position = "left",
         mappings = {
           ["<Space>"] = "noop",
           ["t"] = "open_tabnew",

@@ -32,7 +32,7 @@ require("lazy").setup({
   require("plugins.lualine"),
   require("plugins.mason"),
   require("plugins.mini-icons"),      -- need for checkhealth
-  -- require("plugins.neo-tree"),
+  require("plugins.neo-tree"),
   require("plugins.nvim-cmp"),
   require("plugins.nvim-lspconfig"),
   require("plugins.nvim-scrollbar"),
@@ -49,12 +49,12 @@ require("lazy").setup({
 
   -- vim plugins
   { 'dart-lang/dart-vim-plugin' },
-  { 'preservim/nerdtree' },
+  -- { 'preservim/nerdtree' },
   -- { 'ryanoasis/vim-devicons' },
 })
 
 -- neo-tree
-vim.g.NERDTreeShowHidden = true
+-- vim.g.NERDTreeShowHidden = true
 
 -- vim-devicons
 -- vim.g.webdevicons_enable = true
