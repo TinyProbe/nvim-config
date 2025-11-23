@@ -50,12 +50,12 @@ require("lazy").setup({
   -- vim plugins
   { 'dart-lang/dart-vim-plugin' },
   { 'preservim/nerdtree' },
+  { 'ryanoasis/vim-devicons' },
 })
 
+-- neo-tree
+vim.g.NERDTreeShowHidden = true
 
-vim.cmd([[
-
-" neo-tree
-let g:NERDTreeShowHidden=v:true
-
-]])
+-- vim-devicons
+vim.g.webdevicons_enable = true
+vim.g.webdevicons_enable_nerdtree = true
