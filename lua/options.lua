@@ -277,7 +277,8 @@ vim.opt.termguicolors = true
 
 -- guicursor
 --     set gcr=
-vim.opt.guicursor = "a:hor25-Cursor-blinkon300-blinkoff300"
+-- vim.opt.guicursor = "a:hor25-Cursor-blinkon300-blinkoff300"
+vim.opt.guicursor = ""
 
 -- cursorcolumn	highlight the screen column of the cursor
 	-- (local to window)
