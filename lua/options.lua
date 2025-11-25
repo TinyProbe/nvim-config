@@ -32,7 +32,8 @@
 -- 24. various
 
 vim.api.nvim_command("syntax on")
-vim.api.nvim_command("filetype plugin indent on")
+vim.api.nvim_command("filetype plugin on")
+vim.api.nvim_command("filetype indent on")
 
 -- 1. important
 
@@ -700,11 +701,13 @@ vim.opt.cindent = true
 
 -- cinoptions	options for C-indenting
 	-- (local to buffer)
--- 	set cino=
+-- 	set cino=s,e0,n0,f0,{0,}0,^0,L-1,:s,=s,l0,b0,gs,hs,N0,E0,ps,ts,is,+s,c3,C0,/0,(2s,us,U0,w0,W0,k0,m0,j0,J0,)20,*70,#0,P0
+vim.opt.cinoptions = ">s,e0,n0,f0,{0,}0,^0,L-1,:0,=s,l1,b0,g0,hs,N-s,E-s,ps,t0,is,+s,c0,C0,/0,(s,us,U1,w0,Ws,ks,m1,M0,j1,J1,)20,*70,#0,P0"
 
 -- cinkeys	keys that trigger C-indenting in Insert mode
 	-- (local to buffer)
 -- 	set cink=0{,0},0),0],:,0#,!^F,o,O,e
+vim.opt.cinkeys = "0{,0},0),0],:,0#,!^F,o,O,e"
 
 -- cinwords	list of words that cause more C-indent
 	-- (local to buffer)
@@ -714,6 +717,7 @@ vim.opt.cinwords = "if,else,while,do,for,switch,loop"
 -- cinscopedecls	list of scope declaration names used by cino-g
 	-- (local to buffer)
 -- 	set cinsd=public,protected,private
+vim.opt.cinscopedecls = "public,protected,private"
 
 -- indentexpr	expression used to obtain the indent of a line
 	-- (local to buffer)

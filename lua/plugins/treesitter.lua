@@ -37,5 +37,9 @@ return {
       },
       indent = { enable = false },
     })
+
+    vim.filetype.add({
+      extension = { xaml = "xml" },
+    })
   end,
 }

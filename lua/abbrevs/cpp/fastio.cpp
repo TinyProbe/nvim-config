@@ -21,26 +21,26 @@ public:
     }
 
     inline Fastio &operator>>(bool &b) {
-        char const *token = readtoken();
-        b = !lower_compare(token, "true") ? true :
-                (!lower_compare(token, "false") ? false : atoll(token));
+        char const *token = readToken();
+        b = !lowerCompare(token, "true") ? true :
+                (!lowerCompare(token, "false") ? false : atoll(token));
         return *this;
     }
-    inline Fastio &operator>>(char &c) { c = readbyte(); return *this; }
-    inline Fastio &operator>>(short &s) { s = atoll(readtoken()); return *this; }
-    inline Fastio &operator>>(int &i) { i = atoll(readtoken()); return *this; }
-    inline Fastio &operator>>(long &l) { l = atoll(readtoken()); return *this; }
-    inline Fastio &operator>>(long long &ll) { ll = atoll(readtoken()); return *this; }
-    inline Fastio &operator>>(unsigned char &uc) { uc = atoll(readtoken()); return *this; }
-    inline Fastio &operator>>(unsigned short &us) { us = atoll(readtoken()); return *this; }
-    inline Fastio &operator>>(unsigned int &ui) { ui = atoll(readtoken()); return *this; }
-    inline Fastio &operator>>(unsigned long &ul) { ul = atoll(readtoken()); return *this; }
-    inline Fastio &operator>>(unsigned long long &ull) { ull = atoll(readtoken()); return *this; }
-    inline Fastio &operator>>(float &f) { f = atof(readtoken()); return *this; }
-    inline Fastio &operator>>(double &d) { d = atof(readtoken()); return *this; }
-    inline Fastio &operator>>(long double &ld) { ld = atof(readtoken()); return *this; }
-    inline Fastio &operator>>(char *cstr) { strcpy(cstr, readtoken()); return *this; }
-    inline Fastio &operator>>(std::string &str) { str = readtoken(); return *this; }
+    inline Fastio &operator>>(char &c) { c = readByte(); return *this; }
+    inline Fastio &operator>>(short &s) { s = atoll(readToken()); return *this; }
+    inline Fastio &operator>>(int &i) { i = atoll(readToken()); return *this; }
+    inline Fastio &operator>>(long &l) { l = atoll(readToken()); return *this; }
+    inline Fastio &operator>>(long long &ll) { ll = atoll(readToken()); return *this; }
+    inline Fastio &operator>>(unsigned char &uc) { uc = atoll(readToken()); return *this; }
+    inline Fastio &operator>>(unsigned short &us) { us = atoll(readToken()); return *this; }
+    inline Fastio &operator>>(unsigned int &ui) { ui = atoll(readToken()); return *this; }
+    inline Fastio &operator>>(unsigned long &ul) { ul = atoll(readToken()); return *this; }
+    inline Fastio &operator>>(unsigned long long &ull) { ull = atoll(readToken()); return *this; }
+    inline Fastio &operator>>(float &f) { f = atof(readToken()); return *this; }
+    inline Fastio &operator>>(double &d) { d = atof(readToken()); return *this; }
+    inline Fastio &operator>>(long double &ld) { ld = atof(readToken()); return *this; }
+    inline Fastio &operator>>(char *cstr) { strcpy(cstr, readToken()); return *this; }
+    inline Fastio &operator>>(std::string &str) { str = readToken(); return *this; }
 
     inline Fastio &operator<<(bool b) { return *this << (b ? "true" : "false"); }
     inline Fastio &operator<<(char c) { write_buffer_[write_len_++] = c; return *this; }
@@ -56,17 +56,17 @@ public:
     inline Fastio &operator<<(float f) { return *this << std::to_string(f); }
     inline Fastio &operator<<(double d) { return *this << std::to_string(d); }
     inline Fastio &operator<<(long double ld) { return *this << std::to_string(ld); }
-    inline Fastio &operator<<(char const *cstr) { writestr(cstr, -1); return *this; }
-    inline Fastio &operator<<(std::string const &str) { writestr(str.c_str(), str.size()); return *this; }
+    inline Fastio &operator<<(char const *cstr) { writeStr(cstr, -1); return *this; }
+    inline Fastio &operator<<(std::string const &str) { writeStr(str.c_str(), str.size()); return *this; }
 
 private:
-    inline int lower_compare(char const *lhs, char const *rhs) {
+    inline int lowerCompare(char const *lhs, char const *rhs) {
         while (*lhs && *rhs && tolower(*lhs) == tolower(*rhs))
             ++lhs, ++rhs;
         return *lhs - *rhs;
     }
 
-    inline char readbyte() {
+    inline char readByte() {
         if (read_cur_ == read_len_) {
             read_cur_ = 0;
             try {
@@ -80,20 +80,20 @@ private:
         return read_buffer_[read_cur_++];
     }
 
-    inline char const *readtoken() {
+    inline char const *readToken() {
         static char token_buffer[kBufferSize];
         size_t len = 0;
         do
-            token_buffer[len] = readbyte();
+            token_buffer[len] = readByte();
         while (token_buffer[len] && iswspace(token_buffer[len]));
         do
-            token_buffer[++len] = readbyte();
+            token_buffer[++len] = readByte();
         while (token_buffer[len] && !iswspace(token_buffer[len]));
         token_buffer[len] = '\0';
         return token_buffer;
     }
 
-    inline void writestr(char const *cstr, size_t len) {
+    inline void writeStr(char const *cstr, size_t len) {
         if (len == (size_t)-1)
             len = strlen(cstr);
         if (write_len_ + len > kBufferSize) {

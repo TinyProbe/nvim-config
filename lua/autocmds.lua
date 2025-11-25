@@ -1,33 +1,38 @@
 local space2 = {
-  tabsize     = 2,
-  expandtab   = true,
+  tabsize = 2,
+  expandtab = true,
 }
 local space4 = {
-  tabsize     = 4,
-  expandtab   = true,
+  tabsize = 4,
+  expandtab = true,
 }
 local tab2 = {
-  tabsize     = 2,
-  expandtab   = false,
+  tabsize = 2,
+  expandtab = false,
 }
 local tab4 = {
-  tabsize     = 4,
-  expandtab   = false,
+  tabsize = 4,
+  expandtab = false,
 }
-local filetype_info = {
-  html            = space2,
-  css             = space2,
-  javascript      = space2,
-  javascriptreact = space2,
-  typescript      = space2,
-  typescriptreact = space2,
-  lua             = space2,
-  php             = space2,
-  yaml            = space2,
-  swift           = space2,
-  dart            = space2,
-  make            = tab4,
-  default         = space4,
+
+local settings = {
+  javascriptreact = { tabs = space2, },
+  typescriptreact = { tabs = space2, },
+  javascript      = { tabs = space2, },
+  typescript      = { tabs = space2, },
+  html            = { tabs = space2, },
+  css             = { tabs = space2, },
+  php             = { tabs = space2, },
+  yaml            = { tabs = space2, },
+  xml             = { tabs = space4, },
+  swift           = { tabs = space2, },
+  lua             = { tabs = space2, },
+  dart            = { tabs = space2, },
+  make            = { tabs = tab4, },
+  c               = { tabs = space4, },
+  cpp             = { tabs = space4, },
+  cs              = { tabs = space4, },
+  default         = { tabs = space4, },
 }
 
 vim.api.nvim_create_augroup("BufDefault", {})
@@ -38,11 +43,12 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   pattern = { "*" },
   callback = function()
     local extension = vim.bo.filetype
-    if filetype_info[extension] == nil then
+    if settings[extension] == nil then
       extension = "default"
     end
-    resizeTab(filetype_info[extension].tabsize)
-    vim.bo.expandtab = filetype_info[extension].expandtab
+
+    resizeTab(settings[extension].tabs.tabsize)
+    vim.bo.expandtab = settings[extension].tabs.expandtab
   end,
 })
 

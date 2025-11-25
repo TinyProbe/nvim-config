@@ -3,11 +3,11 @@ function keymap(mode, opt, key, act)
   vim.keymap.set(mode, key, act, opt)
 end
 
--- resize tabgroup
-function resizeTab(size)
-  vim.bo.tabstop      = size
-  vim.bo.shiftwidth   = size
-  vim.bo.softtabstop  = size
+-- resize tabsize option group
+function resizeTab(tabsize)
+  vim.bo.tabstop      = tabsize
+  vim.bo.shiftwidth   = tabsize
+  vim.bo.softtabstop  = tabsize
 end
 
 -- select all
