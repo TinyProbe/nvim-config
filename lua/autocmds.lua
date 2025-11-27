@@ -24,13 +24,8 @@ local settings = {
     css             = { tabs = space2, },
     php             = { tabs = space2, },
     yaml            = { tabs = space2, },
-    xml             = { tabs = space4, },
     swift           = { tabs = space2, },
     dart            = { tabs = space2, },
-    lua             = { tabs = space4, },
-    c               = { tabs = space4, },
-    cpp             = { tabs = space4, },
-    cs              = { tabs = space4, },
     make            = { tabs = tab4, },
     default         = { tabs = space4, },
 }

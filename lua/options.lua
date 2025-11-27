@@ -827,6 +827,7 @@ vim.opt.timeout = false
 
 -- ttimeout	allow timing out halfway into a key code
 -- 	set ttimeout	nottimeout
+vim.opt.ttimeout = true
 
 -- timeoutlen	time in msec for 'timeout'
 -- 	set tm=1000
@@ -834,6 +835,7 @@ vim.opt.timeoutlen = 0
 
 -- ttimeoutlen	time in msec for 'ttimeout'
 -- 	set ttm=50
+vim.opt.ttimeoutlen = 0
 
 -- 17 reading and writing files
 
