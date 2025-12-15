@@ -835,7 +835,7 @@ vim.opt.timeoutlen = 0
 
 -- ttimeoutlen	time in msec for 'ttimeout'
 -- 	set ttm=50
-vim.opt.ttimeoutlen = 0
+vim.opt.ttimeoutlen = 10
 
 -- 17 reading and writing files
 
