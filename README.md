@@ -20,7 +20,7 @@ if [ -d "~/.config/nvim" ]; then
     mv ~/.config/nvim ~/.config/nvim_backup_$(date +%Y%m%d%H%M%S)
 fi
 
-# 2. 저장소 클론 및 심볼릭 링크 설정
+# 2. 저장소 클론
 echo "Cloning nvim-config repository..."
 git clone https://github.com/TinyProbe/nvim-config ~/.config/nvim
 
