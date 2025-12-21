@@ -23,7 +23,7 @@ return {
                             -- vim.print(node.name)
                         end,
                     },
-                    ["l"] = "open_tabnew",
+                    ["l"] = "open",
                     ["L"] = "focus_preview",
                     ["C"] = "noop",
                     ["h"] = "close_node",
